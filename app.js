@@ -91,7 +91,7 @@ function multiply(array) {
 
 function reverse() {
     "use strict";
-    //...
+
 }
 
 // ---------------------
@@ -100,7 +100,14 @@ function reverse() {
 
 function findLongestWord(words) {
     "use strict";
-    //...
+    for (var i = 0, count = 0, longWord=""; i < words.length; i++) {
+        if(words[i].length>count)
+        {
+            count=words[i].length;
+            longWord=words[i];
+        }
+    }
+    return longWord;
 }
 
 // ---------------------
