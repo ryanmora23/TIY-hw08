@@ -100,11 +100,10 @@ function reverse() {
 
 function findLongestWord(words) {
     "use strict";
-    for (var i = 0, count = 0, longWord=""; i < words.length; i++) {
-        if(words[i].length>count)
-        {
-            count=words[i].length;
-            longWord=words[i];
+    for (var i = 0, count = 0, longWord = ""; i < words.length; i++) {
+        if (words[i].length > count) {
+            count = words[i].length;
+            longWord = words[i];
         }
     }
     return longWord;
@@ -116,7 +115,14 @@ function findLongestWord(words) {
 
 function filterLongWords(words, i) {
     "use strict";
-    //...
+    for (var p = 0, longWords = ""; p < words.length; p++)
+    {
+        if(words[p].length > i)
+        {
+            longWords= longWords + " " + words[p];
+        }
+    }
+    return longWords;
 }
 
 // ---------------------
