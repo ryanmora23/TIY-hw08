@@ -60,9 +60,17 @@ function isVowel(char) {
 // Write a function translate() that will translate a text into "rövarspråket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
 // ---------------------
 
+
+//find a consonant: "aeiou".split("").indexOf("t") returns -1
+//var vowels = "aeiou"
+//vowels.indexOf("t") returns -1
+//
 function rovarspraket(text) {
     "use strict";
-
+    var vowels = "aeiouAEIOU /\\\"'";
+    return text.split("").map(function(letter) {
+        return vowels.indexOf(letter) === -1 ? letter + "o" + letter : letter;
+    }).join("");
 
 }
 
@@ -89,9 +97,9 @@ function multiply(array) {
 // Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
 // ---------------------
 
-function reverse() {
+function reverse(sentence) {
     "use strict";
-
+    return sentence.split("").reverse().join("");
 }
 
 // ---------------------
@@ -115,14 +123,12 @@ function findLongestWord(words) {
 
 function filterLongWords(words, i) {
     "use strict";
-    for (var p = 0, longWords = ""; p < words.length; p++)
-    {
-        if(words[p].length > i)
-        {
-            longWords= longWords + " " + words[p];
+    for (var p = 0, longWords = ""; p < words.length; p++) {
+        if (words[p].length > i) {
+            longWords = longWords + " " + words[p];
         }
     }
-    return longWords;
+    return longWords.trim();
 }
 
 // ---------------------
@@ -131,5 +137,25 @@ function filterLongWords(words, i) {
 
 function charFreq(string) {
     "use strict";
-    //...
+    var array = string.split("");
+    for (var i = 0; i < array.length; i++)
+    {
+        var store=array.shift();
+        array = array.unshift(store);
+    }
 }
+/*    
+    specific counters::
+
+    for (var i = 0, aCounter = 0; i < string.length; i++) {
+        if (string.charAt(i) === "a") {
+            aCounter++;
+        }
+    }
+    for (var i = 0, bCounter = 0; i < string.length; i++) {
+        if (string.charAt(i) === "b") {
+            bCounter++;
+        }
+    }
+    return "a's : " + aCounter + " b's: " + bCounter;
+ */
